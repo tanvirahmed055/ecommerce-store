@@ -6,8 +6,10 @@ import Axios from "axios";
 
 const inter = Inter({ subsets: ["latin"] });
 
-function Home({ productData }) {
-  console.log("productData =", productData);
+function Home({ productsData }) {
+  // function Home() {
+
+  console.log("productsData =", productsData);
   return (
     <>
       <Head>
@@ -16,7 +18,9 @@ function Home({ productData }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>Hello world</main>
+      <main className={styles.main}>
+        <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      </main>
     </>
   );
 }
@@ -28,7 +32,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      productData: data,
+      productsData: data.data,
     },
   };
 };

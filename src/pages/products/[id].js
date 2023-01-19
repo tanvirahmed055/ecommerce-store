@@ -52,8 +52,8 @@ function Product({ productData }) {
 export async function getStaticPaths() {
   const res = await Axios.get("https://fakestoreapi.com/products");
 
-  const paths = res.data.map((user) => ({
-    params: { id: user.id.toString() },
+  const paths = res.data.map((product) => ({
+    params: { id: product.id.toString() },
   }));
 
   return { paths, fallback: false };

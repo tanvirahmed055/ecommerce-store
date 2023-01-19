@@ -20,8 +20,6 @@ function Home({ productsData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="container mx-auto">
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-
         <div className="grid grid-cols-3 gap-2">
           {React.Children.toArray(
             productsData.map((product) => {

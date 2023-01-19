@@ -25,8 +25,15 @@ function Product({ productData }) {
       </Head>
       <div className="container mx-auto">
         <div className="card lg:card-side bg-base-100 shadow-xl h-96 mt-32">
-          <figure>
-            <img src={image} alt="Album" />
+          <figure className="h-full w-1/2">
+            {/* <img src={image} alt="Album" /> */}
+            <Image
+              src={image}
+              alt="product image"
+              className="bg-cover h-full"
+              width="100"
+              height="100"
+            />
           </figure>
           <div className="card-body">
             <h2 className="card-title">{title}</h2>

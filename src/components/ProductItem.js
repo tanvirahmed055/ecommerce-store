@@ -1,12 +1,20 @@
 import Link from "next/link";
 import Rating from "./Rating";
+import Image from "next/image";
 
 const ProductItem = ({ product }) => {
   const { id, title, price, description, category, image, rating } = product;
   return (
     <div className="card w-96 bg-base-100 shadow-xl h-96">
-      <figure className="h-1/2">
-        <img src={image} alt="product image" className="bg-cover" />
+      <figure className="h-56">
+        {/* <img src={image} alt="product image" className="bg-cover" /> */}
+        <Image
+          src={image}
+          alt="product image"
+          className="bg-cover h-full"
+          width="100"
+          height="100"
+        />
       </figure>
 
       <div className="card-body">

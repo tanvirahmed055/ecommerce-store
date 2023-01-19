@@ -31,7 +31,7 @@ function Home({ productsData }) {
           products={products}
           setProducts={setProducts}
         ></SearchInput>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 gap-x-2 gap-y-12">
           {React.Children.toArray(
             products.map((product) => {
               return <ProductItem product={product}></ProductItem>;

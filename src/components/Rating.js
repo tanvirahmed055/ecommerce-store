@@ -3,9 +3,9 @@ const Rating = ({ rating }) => {
   return (
     <>
       <div className="rating rating-half">
-        {[...new Array(5)].map((arr, index) => {
+        {[...new Array(5)].map((item, index) => {
           return (
-            <>
+            <div key={index}>
               <input
                 type="radio"
                 name="rating-10"
@@ -34,7 +34,7 @@ const Rating = ({ rating }) => {
                   className="bg-slate-400 mask mask-star-2 mask-half-2"
                 />
               )}
-            </>
+            </div>
           );
         })}
         <span>{count}</span>

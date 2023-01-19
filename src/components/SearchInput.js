@@ -1,29 +1,20 @@
-import { AppContext } from "@/context/AppContext";
-import Link from "next/link";
-import { useContext, useState } from "react";
-
-const SearchInput = ({ products, setProducts }) => {
-  const { searchText, setSearchText } = useContext(AppContext);
-
+const SearchInput = ({ products, setProducts, searchText, setSearchText }) => {
   const handleSearch = (searchText) => {
     const filteredProducts = products.filter((product) => {
       if (product.title.toLowerCase().includes(searchText)) {
         return product;
       }
     });
-    console.log("filteredProducts =", filteredProducts);
     setProducts(filteredProducts);
+    setSearchText("");
   };
 
   return (
     <div className="flex justify-center">
       <form
         className="form-control my-16 mx-auto"
-        method="get"
-        action=""
         onSubmit={(e) => {
           e.preventDefault();
-
           handleSearch(searchText);
         }}
       >
@@ -35,6 +26,7 @@ const SearchInput = ({ products, setProducts }) => {
             onChange={(e) => {
               setSearchText(e.target.value.toLowerCase());
             }}
+            value={searchText}
           />
           <button className="btn btn-square">
             <svg

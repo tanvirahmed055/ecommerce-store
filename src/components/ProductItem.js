@@ -3,11 +3,10 @@ import Rating from "./Rating";
 import Image from "next/image";
 
 const ProductItem = ({ product }) => {
-  const { id, title, price, description, category, image, rating } = product;
+  const { id, title, price, category, image, rating } = product;
   return (
-    <div className="card w-96 bg-base-100 shadow-xl h-96">
+    <div className="card w-96 bg-base-100 shadow-xl h-96 hover:scale-125 hover:delay-150">
       <figure className="h-56">
-        {/* <img src={image} alt="product image" className="bg-cover" /> */}
         <Image
           src={image}
           alt="product image"
@@ -18,7 +17,6 @@ const ProductItem = ({ product }) => {
       </figure>
 
       <div className="card-body">
-        {/* <h1 className="text-2xl">${price}</h1> */}
         <h2 className="card-title ">
           <Link href={`/products/${id}`}> {title}</Link>
 
@@ -39,5 +37,3 @@ const ProductItem = ({ product }) => {
 };
 
 export default ProductItem;
-
-//   <Link href="/about"> About</Link>;

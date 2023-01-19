@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
 import Axios from "axios";
+import ProductItem from "@/components/ProductItem";
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +19,16 @@ function Home({ productsData }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <main className="container mx-auto">
         <h1 className="text-3xl font-bold underline">Hello world!</h1>
+
+        <div className="grid grid-cols-3 gap-2">
+          {React.Children.toArray(
+            productsData.map((product) => {
+              return <ProductItem product={product}></ProductItem>;
+            })
+          )}
+        </div>
       </main>
     </>
   );

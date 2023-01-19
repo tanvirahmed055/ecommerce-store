@@ -18,7 +18,7 @@ const SearchInput = ({ products, setProducts }) => {
   return (
     <div className="flex justify-center">
       <form
-        className="form-control my-5 mx-auto"
+        className="form-control my-16 mx-auto"
         method="get"
         action=""
         onSubmit={(e) => {
@@ -30,8 +30,8 @@ const SearchInput = ({ products, setProducts }) => {
         <div className="input-group">
           <input
             type="text"
-            placeholder="Search…"
-            className="input input-bordered"
+            placeholder="Search Product…"
+            className="input input-bordered w-[62rem]"
             onChange={(e) => {
               setSearchText(e.target.value.toLowerCase());
             }}

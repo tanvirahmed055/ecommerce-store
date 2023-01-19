@@ -3,14 +3,21 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import Axios from "axios";
 import ProductItem from "@/components/ProductItem";
-import React from "react";
+import React, { useContext, useState } from "react";
+import SearchInput from "@/components/SearchInput";
+import { AppContext } from "@/context/AppContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 function Home({ productsData }) {
-  // function Home() {
-
   console.log("productsData =", productsData);
+
+  // const { searchText, setSearchText } = useContext(AppContext);
+
+  const [products, setProducts] = useState(productsData);
+
+  console.log("inside home =", products);
+
   return (
     <>
       <Head>
@@ -20,9 +27,13 @@ function Home({ productsData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="container mx-auto">
+        <SearchInput
+          products={products}
+          setProducts={setProducts}
+        ></SearchInput>
         <div className="grid grid-cols-3 gap-2">
           {React.Children.toArray(
-            productsData.map((product) => {
+            products.map((product) => {
               return <ProductItem product={product}></ProductItem>;
             })
           )}
